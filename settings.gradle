@@ -1,0 +1,5 @@
+rootProject.name = 'cloud-learn'
+include 'eureka-server'
+include 'hello-service'
+include 'api-gateway'
+include 'call-service'

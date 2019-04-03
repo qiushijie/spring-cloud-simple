@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+//        mavenLocal()
+        mavenCentral()
+//        maven { url "https://repo.spring.io/snapshot" }
+//        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springboot_version}"
+    }
+}
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+//    apply plugin: 'application'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    dependencies {
+//        compile("org.springframework.boot:spring-boot-starter")
+    }
+
+    repositories {
+        repositories {
+//            mavenLocal()
+            mavenCentral()
+//            jcenter()
+//            maven { url 'https://repo.spring.io/release/' }
+//            maven { url "https://repo.spring.io/libs-snapshot-local" }
+//            maven { url "https://repo.spring.io/libs-milestone-local" }
+//            maven { url "https://repo.spring.io/libs-release-local" }
+        }
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springcloud_version}"
+        }
+    }
+
+//    configurations {
+//        all*.exclude module: 'commons-logging'
+//    }
+
+    //这里一定得要。在多模块下，不然编译失败，因为不会把信赖模块给打包。
+//    jar {
+//        enabled = true
+//    }
+
+//    bootJar {
+//        classifier = 'app'
+//    }
+}
