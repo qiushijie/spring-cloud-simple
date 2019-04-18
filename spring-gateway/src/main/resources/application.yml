@@ -10,6 +10,12 @@ spring:
         - Path=/hello/**
         filters:
         - StripPrefix=1
+      - id: ws-service
+        uri: lb:ws://ws-service
+        predicates:
+        - Path=/ws/**
+        filters:
+        - StripPrefix=1
 server:
   port: 10000
 eureka:
