@@ -19,6 +19,11 @@ public class HelloServiceApplication {
     @Value("${server.port}")
     private int port;
 
+    @RequestMapping("/hello/hi")
+    public String aa() {
+        return "aa";
+    }
+
     @RequestMapping("/hi")
     public String hello() {
         return "hi, my port=" + port;
