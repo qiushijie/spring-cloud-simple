@@ -4,13 +4,13 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: hello-service
+      - id: hello
         uri: lb://hello-service
         predicates:
         - Path=/hello/**
         filters:
         - StripPrefix=1
-      - id: ws-service
+      - id: ws
         uri: lb:ws://ws-service
         predicates:
         - Path=/ws/**
