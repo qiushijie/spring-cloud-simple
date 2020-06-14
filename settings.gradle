@@ -5,4 +5,6 @@ include 'api-gateway'
 include 'call-service'
 include 'websocket'
 include 'spring-gateway'
+include 'hystrix'
+include 'service-interface'
 
